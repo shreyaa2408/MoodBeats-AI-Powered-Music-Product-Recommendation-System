@@ -11,6 +11,10 @@ MoodBeats is an AI-powered web application that recommends songs and products ba
 - E-commerce product suggestions
 - Interactive web interface
 - Mood-based user engagement through AI recommendations
+- User login and signup system
+- Admin dashboard for managing products and users
+- Shopping cart and order history functionality
+- Mood-based personalized product browsing
 
 ## Tech Stack
 
@@ -23,12 +27,16 @@ MoodBeats is an AI-powered web application that recommends songs and products ba
 
 ## Project Structure
 
+## Project Structure
+
 - `run.py` – Entry point of the application
 - `app/routes.py` – Application routes
 - `app/emotion_detect.py` – Emotion detection logic
 - `app/database.py` – Database handling
 - `app/templates/` – HTML templates
 - `app/static/` – CSS, JS, images
+- `screenshots/` – Project screenshots for README
+- `MoodBeats-Demo.mp4` – Project demo video
 - `moodbeats.db` – SQLite database file
 
 ## How It Works
@@ -37,7 +45,8 @@ MoodBeats is an AI-powered web application that recommends songs and products ba
 2. The system detects the user's emotion using facial emotion detection.
 3. Based on the detected emotion, the application recommends suitable songs.
 4. It also suggests related products to enhance the user experience.
-5. The platform combines entertainment and shopping in one personalized interface.
+5. Users can browse recommended products, add items to cart, and place orders.
+6. Admin can manage products and users through the admin dashboard.
 
 ## Installation and Setup
 
@@ -67,6 +76,41 @@ MoodBeats is an AI-powered web application that recommends songs and products ba
 
 5. Open the local server URL in your browser.
 
+## Admin Login
+
+- **Username:** admin
+- **Password:** admin123
+
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/home.png)
+
+### User Dashboard
+![User Dashboard](screenshots/user-dashboard.png)
+
+### Recommended Products
+![Recommended Products](screenshots/recommended-products.png)
+
+### Cart Page
+![Cart Page](screenshots/cart.png)
+
+### My Orders
+![My Orders](screenshots/orders.png)
+
+### Login Page
+![Login Page](screenshots/login.png)
+
+### Sign Up Page
+![Sign Up Page](screenshots/signup.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+
+## Demo Video
+
+[▶ Watch MoodBeats Demo](MoodBeats-Demo.mp4)
 ## Future Scope
 
 - Real-time webcam-based emotion detection
