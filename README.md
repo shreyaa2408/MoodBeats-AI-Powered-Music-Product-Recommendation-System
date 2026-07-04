@@ -87,25 +87,25 @@ MoodBeats is an AI-powered web application that recommends songs and products ba
 ![Home Page](screenshots/home.png)
 
 ### User Dashboard
-![User Dashboard](screenshots/user-dashboard.png)
+![User Dashboard](screenshots/user_dashboard.png)
 
 ### Recommended Products
-![Recommended Products](screenshots/recommended-products.png)
+![Recommended Products](screenshots/recommended_products.png)
 
 ### Cart Page
 ![Cart Page](screenshots/cart.png)
 
 ### My Orders
-![My Orders](screenshots/orders.png)
+![My Orders](screenshots/order_history.png)
 
 ### Login Page
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/login_page.png)
 
 ### Sign Up Page
-![Sign Up Page](screenshots/signup.png)
+![Sign Up Page](screenshots/signup_page.png)
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](screenshots/admin_dashboard.png)
 
 
 ## Demo Video
