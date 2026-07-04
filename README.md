@@ -90,7 +90,7 @@ MoodBeats is an AI-powered web application that recommends songs and products ba
 ![User Dashboard](screenshots/user_dashboard.png)
 
 ### Recommended Products
-![Recommended Products](screenshots/recommended_products.png)
+![Recommended Products](screenshots/recommend_products.png)
 
 ### Cart Page
 ![Cart Page](screenshots/cart.png)
