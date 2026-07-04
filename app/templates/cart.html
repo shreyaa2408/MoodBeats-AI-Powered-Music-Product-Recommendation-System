@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Cart - MoodBeats</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #eaf6fb, #ffffff);
+        margin: 0;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .cart-container {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+        max-width: 950px;
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #0077b6;
+        margin-bottom: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+      }
+
+      th {
+        background-color: #00b4d8;
+        color: white;
+      }
+
+      .product-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .qty-controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .qty-btn {
+        background-color: #00b4d8;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .remove-btn {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .total {
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .empty-message {
+        text-align: center;
+        font-size: 18px;
+        color: #999;
+      }
+
+      .checkout-btn {
+        display: inline-block;
+        background-color: #0077b6;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .checkout-btn:hover {
+        background-color: #023e8a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cart-container">
+      <h2>Your Cart 🛒</h2>
+
+      {% if cart_items %}
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+          <tr>
+            <td>
+              <img
+                src="{{ url_for('static', filename='images/' ~ item[4]) }}"
+                alt="Product Image"
+                class="product-img"
+              />
+            </td>
+            <td>{{ item[0] }}</td>
+            <td>₹{{ item[1] }}</td>
+            <td>
+              <div class="qty-controls">
+                <form
+                  method="POST"
+                  action="{{ url_for('main.update_quantity', product_id=item[5], action='decrease') }}"
+                >
+                  <button type="submit" class="qty-btn">−</button>
+                </form>
+                {{ item[2] }}
+                <form
+                  method="POST"
+                  action="{{ url_for('main.update_quantity', product_id=item[5], action='increase') }}"
+                >
+                  <button type="submit" class="qty-btn">+</button>
+                </form>
+              </div>
+            </td>
+            <td>₹{{ item[3] }}</td>
+            <td>
+              <form
+                method="POST"
+                action="{{ url_for('main.remove_from_cart', product_id=item[5]) }}"
+              >
+                <button class="remove-btn">Remove</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <p class="total">Total: ₹{{ total }}</p>
+
+      <div style="text-align: right; margin-top: 20px">
+        <a href="{{ url_for('main.checkout') }}" class="checkout-btn"
+          >Proceed to Checkout</a
+        >
+      </div>
+
+      {% else %}
+      <p class="empty-message">Your cart is currently empty.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

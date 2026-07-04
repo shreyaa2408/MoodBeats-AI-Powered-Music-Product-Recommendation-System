@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout - MoodBeats</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #eaf6fb, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .checkout-box {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+      }
+
+      h2 {
+        color: #0077b6;
+        font-size: 32px;
+        margin-bottom: 15px;
+      }
+
+      .icon {
+        font-size: 60px;
+        color: #00b4d8;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .home-btn {
+        margin-top: 25px;
+        background-color: #0077b6;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .home-btn:hover {
+        background-color: #023e8a;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="checkout-box">
+      <div
+        class="icon"
+        style="font-size: 60px; text-align: center; margin-bottom: 20px"
+      >
+        ✅
+      </div>
+      <h2>Thank You for Your Purchase!</h2>
+      <p style="font-size: 18px; text-align: center">
+        🎉 Your order is being prepared and will be shipped soon.
+      </p>
+      <p style="font-size: 16px; text-align: center; color: #555">
+        We appreciate your trust in MoodBeats!
+      </p>
+
+      <div style="text-align: center; margin-top: 30px">
+        <a
+          href="{{ url_for('main.user_home') }}"
+          class="home-btn"
+          style="
+            background-color: #00b4d8;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+          "
+        >
+          🔙 Back to Home
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

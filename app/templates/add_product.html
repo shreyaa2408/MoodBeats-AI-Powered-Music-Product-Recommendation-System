@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Product - MoodBeats</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to right, #e0f7fa, #ffffff);
+        height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        width: 480px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background-color: white;
+      }
+      h3 {
+        color: #007bff;
+        font-weight: bold;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .form-control {
+        border-radius: 10px;
+      }
+      .btn {
+        border-radius: 10px;
+        width: 100%;
+      }
+      label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #444;
+      }
+
+      .flash-message {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1050;
+        background-color: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 1rem;
+        text-align: center;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        animation: fadeInOut 3s ease forwards;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          bottom: 0;
+        }
+        10%,
+        90% {
+          opacity: 1;
+          bottom: 30px;
+        }
+        100% {
+          opacity: 0;
+          bottom: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h3>➕ Add New Product</h3>
+      <form method="POST" enctype="multipart/form-data">
+        <label for="name">Product Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control mb-3"
+          placeholder="E.g. Mood Mug"
+          required
+        />
+
+        <label for="price">Price (₹)</label>
+        <input
+          type="number"
+          name="price"
+          class="form-control mb-3"
+          placeholder="E.g. 199"
+          required
+        />
+
+        <label for="image">Upload Product Image</label>
+        <input
+          type="file"
+          name="image"
+          class="form-control mb-3"
+          accept="image/*"
+          required
+        />
+
+        <label for="mood">Select Mood</label>
+        <select name="mood" class="form-control mb-4" required>
+          <option value="" disabled selected>Select Mood</option>
+          <option value="happy">Happy</option>
+          <option value="sad">Sad</option>
+          <option value="angry">Angry</option>
+          <option value="neutral">Neutral</option>
+          <option value="surprise">Surprise</option>
+          <option value="fear">Fear</option>
+        </select>
+
+        <button type="submit" class="btn btn-success">Add Product</button>
+      </form>
+    </div>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flash-message">
+      {% for message in messages %} {{ message }} {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
+  </body>
+</html>

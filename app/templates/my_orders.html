@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Orders - MoodBeats</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f1f8ff;
+        margin: 0;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+      }
+
+      .orders-container {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        max-width: 800px;
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #0077b6;
+        margin-bottom: 30px;
+      }
+
+      .order-box {
+        border: 1px solid #dbe9f4;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 25px;
+        background-color: #f9fbff;
+      }
+
+      .order-box h3 {
+        margin: 0 0 10px;
+        color: #023e8a;
+      }
+
+      .order-box p {
+        margin: 4px 0;
+        color: #444;
+      }
+
+      .order-box ul {
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+
+      .order-box li {
+        margin-bottom: 6px;
+        color: #555;
+      }
+
+      .no-orders {
+        text-align: center;
+        color: #888;
+        font-size: 18px;
+      }
+
+      .home-btn {
+        display: block;
+        margin: 30px auto 0;
+        text-align: center;
+        background-color: #0077b6;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .home-btn:hover {
+        background-color: #005f87;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orders-container">
+      <h2>🧾 My Orders</h2>
+
+      {% if orders %} {% for order in orders %}
+      <div class="order-box">
+        <h3>Order #{{ order.id }}</h3>
+        <p><strong>Date:</strong> {{ order.timestamp }}</p>
+        <p><strong>Total:</strong> ₹{{ order.total }}</p>
+        <h4>Items:</h4>
+        <ul>
+          {% for item in order["items"] %}
+          <li>
+            {{ item.product_name }} (x{{ item.quantity }}) - ₹{{ item.price *
+            item.quantity }}
+          </li>
+
+          <li>
+            <img
+              src="{{ url_for('static', filename='images/' ~ item.image_filename) }}"
+              width="50"
+            />
+            {{ item.product_name }} (x{{ item.quantity }}) — ₹{{ item.quantity *
+            item.price }}
+          </li>
+
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %} {% else %}
+      <p class="no-orders">You haven't placed any orders yet.</p>
+      {% endif %}
+
+      <a href="{{ url_for('main.user_home') }}" class="home-btn"
+        >🏠 Back to Home</a
+      >
+    </div>
+  </body>
+</html>
